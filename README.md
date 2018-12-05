@@ -10,10 +10,10 @@
 
 ### 编译与运行
 由于代码是在Archlinux下完成的，所以在其他Linux发行版的运行情况并不了解。
-```bash
-git clone -b draft https://github.com/MoozIiSP/hi-world.git
-cd hi-world/ideas/SnakeGame
 
+```bash
+git clone https://github.com/MoozIiSP/snake.git
+cd snake
 cmake . && make
-./sfml
+./snake
 ```
