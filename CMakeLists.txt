@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.7)
+project(sfml)
+
+set(CMAKE_CXX_STANDARD 14)
+set(SFML_ROOT "D:/lib/SFML-2.4.2-mingw")
+set(FANN_ROOT "D:/lib/fann")
+
+#if(NOT CMAKE_BUILD_TYPE)
+#    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build (Debug or Release)" FORCE)
+#endif()
+
+include_directories(${SFML_ROOT}/include ${FANN_ROOT}/src/include)
+link_directories(${SFML_ROOT}/lib ${FANN_ROOT}/bin/x64)
+
+set(SOURCE_FILES main.cpp snake.cpp snake.h Point.h Map.cpp Map.h Stage.cpp Stage.h fann_ai.h fann_ai.cpp)
+#set(SOURCE_FILES main.cpp)
+set(EXECUTABLE_NAME "snake")
+add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
+#target_link_libraries(sfml sfml-graphics sfml-window sfml-system sfml-main)
+target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-system sfml-window fann)
+#set(CMAKE_MODULE_PATH "${SFML_ROOT}/cmake/Modules" ${CMAKE_MODULE_PATH})
+#find_package(SFML 2.4 REQUIRED system window graphics network audio)
+#if(SFML_FOUND)
+#    include_directories(${SFML_INCLUDE_DIR})
+#    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+#endif()
